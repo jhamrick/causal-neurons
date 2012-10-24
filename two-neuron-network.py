@@ -69,27 +69,27 @@ for t in xrange(nsteps-1):
     yxd[t+1] = wyx*np.sum(np.exp(-ayx*(nt-np.nonzero(y[sl] == 1)[0])))
     xyd[t+1] = wxy*np.sum(np.exp(-axy*(nt-np.nonzero(x[sl] == 1)[0])))
     yyd[t+1] = wyy*np.sum(np.exp(-ayy*(nt-np.nonzero(y[sl] == 1)[0])))
-	
+    
     if xv[t] > 0.5 and yv[t] > 0.5:
-	xfirst = np.random.rand() > 0.5
-	print xfirst
+        xfirst = np.random.rand() > 0.5
+        print xfirst
     else:
-	xfirst = True
-	
+        xfirst = True
+    
     if xv[t] > 0.5 and xfirst:
-	x[t+1] = 1
-	xv[t+1] = 0
+        x[t+1] = 1
+        xv[t+1] = 0
 
     elif yv[t] > 0.5:
-	y[t+1] = 1
-	yv[t+1] = 0
+        y[t+1] = 1
+        yv[t+1] = 0
 
     # print t
     # print z[t]
     # print xd[t+1], xv[t+1], x[t+1]
     # print yd[t+1], yv[t+1], y[t+1]
     # print
-		
+
     tv = [t, t+1]
     plt.subplot(223)
     plt.plot(tv, x[t:t+2], 'r-')
